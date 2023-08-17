@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_rule_book_checks",
+  "info": {
+    "displayName": "Check",
+    "icon": "crown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "imageUrl": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "videoUrl": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

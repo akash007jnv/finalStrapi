@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "setups",
+  "info": {
+    "singularName": "setup",
+    "pluralName": "setups",
+    "displayName": "setup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "setupDetail": {
+      "type": "richtext"
+    },
+    "checkPoint": {
+      "displayName": "Check",
+      "type": "component",
+      "repeatable": true,
+      "component": "rule-book.check"
+    },
+    "videoUrl": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "imageUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "setups"
+    },
+    "setup_givens": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::setup-given.setup-given",
+      "inversedBy": "setups"
+    },
+    "trade_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::trade-type.trade-type",
+      "mappedBy": "setups"
+    }
+  }
+}

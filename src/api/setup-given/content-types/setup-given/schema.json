@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "setup_givens",
+  "info": {
+    "singularName": "setup-given",
+    "pluralName": "setup-givens",
+    "displayName": "setupGiven"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "iamgeUrl": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "setups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::setup.setup",
+      "mappedBy": "setup_givens"
+    }
+  }
+}

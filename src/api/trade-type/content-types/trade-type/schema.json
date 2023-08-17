@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trade_types",
+  "info": {
+    "singularName": "trade-type",
+    "pluralName": "trade-types",
+    "displayName": "tradeType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "setups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::setup.setup",
+      "inversedBy": "trade_types"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_rule_book_rulesses",
+  "info": {
+    "displayName": "Ruless",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
