@@ -1,0 +1,36 @@
+ push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  AZURE_WEBAPP_NAME: newStarpi  # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: "."      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '14.x'                # set this to the node version to use
+  API_URL: "https://newstarpi.azurewebsites.net" # main slot url
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    # install dependencies, build, and test
+    - name: npm install, build, and test  #describes which commands need to be run
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'production-app’'
+        slot-name: 'preview'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_PRODUCTION }}
+        package: .
